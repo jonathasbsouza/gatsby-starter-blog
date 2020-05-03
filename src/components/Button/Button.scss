@@ -1,0 +1,57 @@
+$primary: black;
+
+.btn {
+  border: 2px solid;
+  border-radius: 6px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-size: 16px;
+  padding: 14px 24px;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+
+  @media screen and (max-width: 580px) {
+    margin-bottom: 10px;
+    min-width: 75vw;
+  }
+
+  @each $name, $cor in (primary, $primary), (white, white) {
+    &.#{$name} {
+      border-color: $cor;
+      color: $cor;
+
+      &.main {
+        background-color: $cor;
+        color: white;
+      }
+
+      &.outline {
+        border-color: $cor;
+        background-color: transparent;
+      }
+
+      &:hover {
+        color: white;
+        background-color: darken($cor, 7%);
+        border-color: darken($cor, 7%);
+      }
+    }
+  }
+
+  &.white {
+    &.main {
+      color: rgba(53, 1, 140, 1);
+    }
+
+    &:hover {
+      color: rgba(53, 1, 140, 1);
+    }
+  }
+
+  &.dark {
+    color: white;
+  }
+}
